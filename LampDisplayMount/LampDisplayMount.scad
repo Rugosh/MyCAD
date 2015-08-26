@@ -1,5 +1,5 @@
 resolution = 100;
-Stand(30, 37, 5, 14, 40, resolution);
+Stand(30 / 2, 37 / 2, 5, 14 / 2, 40, resolution);
 
 module Stand(diameterStand, diameterStandTop, 
     lenghtStandTop, diamenterLampMount, lenghtLampMount, resolution){
