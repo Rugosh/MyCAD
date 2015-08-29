@@ -1,33 +1,19 @@
-resulution = 100;
-
-stand_thikness = 3;
-stand_width = 20;
-stand_depth = 30;
-
-headphone_widht = 25;
-headphone_heigth = 9;
-
-table_width = 22;
-table_stand_height = 50;
-table_plate_support_insert = 12;
-table_plate_support_height = 40;
-
-cable_diameter = 3.5;
-cable_holder_diameter = 6;
-
+include <Properties.scad>;
 
 //HeadPhoneHolder();
-HeadPhoneHolder();
 
 module HeadPhoneHolder(){
+    difference(){
     linear_extrude(height = stand_width){
         HeadPhoneHolderSideView();
-    }
-    
-    translate([-15, 13.5, (stand_width ) /2])
-        rotate([0,90,0]){
-            CableHolder();
+    }    
+    translate([-15, headphone_heigth - 1, (stand_width / 2) + (cable_holder_diameter / 2)])
+    rotate([0,90,0]){
+        linear_extrude(height = cable_stand_width){
+            square([cable_stand_thikness, cable_stand_width + 2], false);
         }
+    }
+}
 }
 
 module HeadPhoneHolderSideView(){
@@ -63,18 +49,3 @@ module HeadPhoneHolderSideView(){
         [headphone_widht + stand_thikness, 0]]);
 }
 
-module CableHolder(){
-    linear_extrude(height = 5){
-        CableHolderSideView();
-    }
-}
-
-module CableHolderSideView(){
-    rotate([0,0,90])
-    difference(){
-        circle(cable_holder_diameter/2,  $fn=resulution);
-        circle(cable_diameter/2, $fn=resulution);
-        translate([-2, 0, 0])
-            square(3, 3);
-    }
-}
