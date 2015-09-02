@@ -24,7 +24,7 @@ module HeadPhoneHolderSideView(){
         square([stand_thikness, headphone_heigth + stand_thikness], false);
     
     // TischKantenstütze
-    translate([-stand_thikness, -table_width + headphone_heigth + stand_thikness, 0])
+    translate([-stand_thikness, -table_width + headphone_heigth, 0])
         square([stand_thikness, table_width], false);
     
     // Table Plate Top
@@ -32,20 +32,19 @@ module HeadPhoneHolderSideView(){
         square([stand_depth, stand_thikness], false);
     
     // Table Plate Bottom
-    translate([-table_plate_support_insert, - table_width + headphone_heigth, 0])
-        square([table_plate_support_insert, stand_thikness], false);
+    translate([-table_plate_support_insert - stand_thikness, + stand_thikness - table_width + headphone_heigth - stand_thikness *2, 0])
+        square([table_plate_support_insert + stand_thikness, stand_thikness], false);
     
     // Table Plate Support
-    translate([-table_plate_support_insert, - table_width + headphone_heigth -table_plate_support_height + stand_thikness, 0])
-        square([stand_thikness, table_plate_support_height], false);
+    translate([-table_plate_support_insert - stand_thikness, - table_width + headphone_heigth -table_plate_support_height + stand_thikness , 0])
+        square([stand_thikness, table_plate_support_height - stand_thikness], false);
         
     // Stabalize
-    color("red")
     polygon(points=[
         [0,0],
         [0,- table_width + headphone_heigth],
-        [-table_plate_support_insert + stand_thikness, - table_width + headphone_heigth],
-        [-table_plate_support_insert + stand_thikness, -table_plate_support_height - table_width + headphone_heigth + stand_thikness],
+        [-table_plate_support_insert, - table_width + headphone_heigth],
+        [-table_plate_support_insert, -table_plate_support_height - table_width + headphone_heigth + stand_thikness],
         [headphone_widht + stand_thikness, 0]]);
 }
 
