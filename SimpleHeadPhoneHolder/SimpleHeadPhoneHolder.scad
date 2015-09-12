@@ -1,11 +1,11 @@
 table_width = 22;
 
 holder_width = 25;
-holder_thikness = 5;
+holder_thikness = 5.5;
 holder_lenght = 40;
 
-headphone_height = 4;
-headphone_widht = 30;
+headphone_height = 4.5;
+headphone_widht = 34;
 
 // Print HeadPhone Holder
 HeadPholeHolder();
